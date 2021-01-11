@@ -1,0 +1,15 @@
+parent('Hasib' , 'Rakib'). parent('Rakib' , 'Sohel'). parent('Rakib' , 'Rebeka').
+parent('Hasib','Rashid'). parent('Hasib','Salma').  grandparent(X, Z) :- parent(X, Y), parent(Y, Z).
+male('Hasib'). male('Rakib'). male('Sohel'). male('Rashid').
+brother(X,Y):- parent(Z,X), parent(Z,Y), male(X), not(X=Y).
+sister(X,Y):- parent(Z,X), parent(Z,Y), not(male(X)), not(X=Y).
+uncle(X,Y):- brother(X,Z), parent(Z,Y), male(X).
+aunt(X,Y):- sister(X,Z), parent(Z,Y), not(male(X)).
+
+
+
+
+
+
+
+
